@@ -108,7 +108,7 @@ WSGI_APPLICATION = 'casaNorma.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'casaNorma$default',
+            'NAME': 'casaNorma$casaNormaDB',
             'USER': 'casaNorma',
             'PASSWORD': '23051988joswelj',
             'HOST': 'casaNorma.mysql.pythonanywhere-services.com',

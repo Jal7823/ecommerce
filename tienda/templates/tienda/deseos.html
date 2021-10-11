@@ -1,0 +1,54 @@
+
+
+{% extends "base.html" %}
+{% load static %}
+{% load cart_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/styleTienda.css' %}">
+{% endblock %}
+
+{% block title %}{{titulo.nombre}}{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<div class="container">
+  {% if messages %}
+  <ul>
+     {% for message in messages %}
+     <div class="alert alert-success text-center justify-content-center  ">
+      <p id='mensaje' class='h3'>{{ message }}</p>
+    </div>
+    
+     {% endfor %}
+  </ul>
+  {% endif %}
+  
+</div>
+
+
+
+<div class="col-sm-12  ">
+  <div class="mt-4">
+    
+      {% include "tienda/widgetDeseos.html" %}
+
+  </div>
+</div>
+
+
+<div class="container ">
+  
+  <a href="{% url 'clear_cart_deseo' %}" class="btn btn-danger">Limpiar lista de deseos &nbsp;<i class="fas fa-trash"></i></a>
+</div>
+
+
+
+
+
+
+{% endblock %}

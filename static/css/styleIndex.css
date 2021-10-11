@@ -1,0 +1,140 @@
+*{
+    font-family: 'sans-serif';
+}
+
+
+#imagenCategorias{
+    cursor:pointer;
+}
+
+
+#imagenCategorias:hover{
+    transform: scale(1.03);
+    transition: 1s;
+
+
+}
+
+
+#contenedor-articulo:hover{
+    transform: scale(1.03);
+    transition: 1s;
+
+ 
+}
+
+
+#envios{
+    cursor:pointer;
+}
+
+
+#envios:hover{
+    transform: scale(1.03);
+    transition: 1s;
+
+}
+
+#redSocial{
+    z-index:.5;
+    display: inline-block;
+}
+
+
+#divInsta{
+    transform: translateX(-130px);
+
+}
+
+
+
+#divFace{
+    transform: translateX(-130px);
+    transition: 1s;
+    cursor:pointer;
+}
+
+
+#divWhat{
+    transform: translateX(-130px);
+    transition: 1s;
+    cursor:pointer;
+}
+
+
+#divInsta:hover{
+    transform: translateX(0px);
+    transition: 1s;
+    cursor:pointer;
+
+
+}
+
+#divFace:hover{
+    transform: translateX(0px);
+    transition: 1s;
+}
+
+
+#divWhat:hover{
+    transform: translateX(0px);
+    transition: 1s;
+}
+
+
+
+@media screen and (max-width:400px){
+    #redSocial1{
+        visibility:hidden;
+    }
+    
+}
+
+
+#carrucel{
+    z-index:1;
+}
+
+
+#imagenCategorias:hover{
+    filter:saturate(180%)
+}
+
+
+#socialInsta{
+    border-radius: 23px;
+    width:110px;
+}
+
+#socialFace{
+    border-radius: 23px;
+    width:110px;
+}
+
+#socialWhat{
+    border-radius: 23px;
+    width:110px;
+}
+
+
+
+
+/* servicios */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

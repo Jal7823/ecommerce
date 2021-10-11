@@ -1,0 +1,35 @@
+
+<style>
+  #contenedorFiltro{
+    display:none;
+    transition:1s;
+  }
+</style>
+
+<!-- BUSCADOR -->
+<div class="container mt-4 border" id="contenedorFiltro">
+
+    <i id='cerrar' style='margin-left:95%' class="far fa-window-close mt-4"></i>
+
+    <form >
+      <ul class="list-group list-group-flush">
+        {% for m in categoria  %}
+          <li class="list-group-item">
+            <input id='{{m.id}}' name='{{m}}' class=" mx-auto" type="checkbox" placeholder="Buscar" aria-label="Search">
+            <label  for="">{{ m }}</label>
+          </li>
+        {% endfor %}
+        <button class="btn btn-outline-success mb-4" type="submit">Buscar</button>
+      </ul>      
+
+
+      
+    </form>
+  </div>
+
+
+
+
+
+  
+  <!-- BUSCADOR -->

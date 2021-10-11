@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load cart_tags %}
+
+
+{% block css %}
+
+
+
+{% endblock %}
+
+{% block title %}{{titulo.nombre}}{% endblock %}
+
+
+{% block content %}
+
+
+{% include "tienda/mensajes.html" %}
+<!-- BUSCADOR -->
+{% include "tienda/buscador.html" %}
+<!-- BUSCADOR -->
+
+<!-- FILTRO -->
+{% include "tienda/filtro.html" %}
+<!-- FILTRO -->
+
+
+<div class="container ">
+  <div class="row justify-content-center">
+            
+          {% for p in productos  %}
+            <div class="col-md-3 m-4 shadow bg-white rounded">
+              <div class="cards " id='articulo'>
+                <a href="{% url 'carrito' p.id %}"><img style='width:250px;height:300px;object-fit:scale-down;' src="{{p.imagen.url}}" class="card-img-top  mx-auto mt-4" alt=""></a>
+                {% if p.stock == False %}
+                  <p style='opacity:0.7;transform:translateY(-15vh)' class="text-center "><strong class="text-white p-2 rounded bg-danger h2">
+                    AGOTADO 
+                  </strong></p>
+                {% endif %}
+              <p>{{p.nombre}}</p>
+              <p class="text-success "> <strong> Por mayor: $ {{p.precioMayor | floatformat:'2'}}</strong></p>
+              <p >Por menor: $ {{p.precio | floatformat:'2'}}</p>
+              <small class="text-muted">Genero: {{ p.genero }}</small>
+
+              
+              <div class="container d-flex">
+                <button  class="btn btn-primary mb-4"><a class="text-light" href="{% url 'carrito' p.id %}">Ver </a></button>
+                
+                {% if p.stock == False %}
+                
+                {% else %}
+                  
+                <a class="text-light" href="{% url 'add_product' p.id %}"><button  class="btn btn-success mb-4 ml-2">+<i class="fas fa-shopping-cart"></i></button></a>
+
+                {% endif %}
+
+              </div>
+              <div class="container">
+
+              </div>
+              
+            </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    
+    <!-- /iterando articulos -->
+    
+    <!-- paginacion -->
+      {% include "tienda/paginacion.html" %}
+    <!-- /paginacion -->
+    
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- iterando articulos -->
+
+
+
+<script>
+  const $filtro = document.getElementById('filtro')
+  const $contenedorFiltro = document.getElementById('contenedorFiltro')
+  const $contenedorBuscador = document.getElementById('contenedorBuscador')
+  const $cerrar = document.getElementById('cerrar')
+
+
+
+  
+  $filtro.addEventListener('click',()=>{
+    
+    $contenedorBuscador.style.transition ='1s'
+    $contenedorFiltro.style.display='block'
+    $contenedorFiltro.style.transition='1s'
+    $contenedorBuscador.style.display ='none'
+  })
+
+  $cerrar.addEventListener('click', ()=>{
+    $contenedorFiltro.style.transition='1s'
+    $contenedorBuscador.style.transition ='1s'
+    $cerrar.style.cursor ='pointer'
+    $contenedorFiltro.style.display='none'
+    $contenedorBuscador.style.display ='block'
+
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+{% endblock %}

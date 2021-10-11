@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css %}
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+{% include "tienda/mensajes.html" %}
+
+
+
+
+<!-- contendor de productos  -->
+
+<img src="{{i.imagen.url}}" alt="">
+
+
+<div class="container-fluid justify-content-center border-bottom  mt-5 ">
+    
+    <div class="row rounded d-flex ">
+        <div class="col-md-6 border-right bor  text-light rounded ">
+            
+            <div class="card">
+                    <img class="card-img-top " style='max-width:400px;height:auto;margin:auto;' src="{{ object.imagen.url }}" alt="">
+                    
+                    {% if object.stock == False or object.precioMayor == 0 %}
+                    
+                    <p style='opacity:0.7;transform:translateY(-30vh);cursor:none;' class="text-center "><strong class="text-white p-2 rounded bg-danger h2">
+                        AGOTADO 
+                    </strong></p>
+                    {% endif %}
+                </div>
+                
+            </div>
+            
+            <div class="col-sm-4  ">
+                <div class="card-body">
+                    
+                    <div class="row d-flex" >
+                        <h3 style='margin:auto;' class="card-title text-primary justify-content-center text-center"> {{ object.nombre }}</h3>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <p class="text-justify mt-3">
+                            {% if object.descripcion == None %}
+                            <p>Excelente calidad y al mejor precio, recorda que si comprás 3 unidades por articulos, ya obtenes precios por mayor.</p>
+                            {% else %}
+                            
+                            {{ object.descripcion }}
+                            <p>Excelente calidad y al mejor precio, recorda que si comprás 3 unidades por articulos, ya obtenes precios por mayor.</p>
+                            
+                            
+                            {% endif %} 
+                        </div>
+                        
+                        <hr>
+                        
+                        
+                        <div class="row d-block">
+                            
+                            
+                            
+                    {% if object.precioMayor == 0 %}
+                    
+                    {% else %}
+
+                    <div class="card-text ml-3 text-success ">Por mayor: <strong> $ {{ object.precioMayor |floatformat:'2' }}</strong></div>
+                        <div class="card-text ml-3 ">Por menor: <strong> $ {{ object.precio | floatformat:'2'  }}</strong></div>
+                        
+                        
+                        {% endif %}
+                        
+
+                        
+                        
+                        
+                    </div>
+                    
+                    
+                    <div class="card-text">
+                        
+                        {% if object.caracteristica == None %}
+                        
+                        {% else %}
+                        
+                        {{object.caracteristica}}    
+                        
+                        {% endif %}
+                        
+                    </div>
+                    <div class="card-text">
+                        <p class="card-text"><small class="text-muted">cod: {{ object.cod }}</small></p>
+                    </div>
+                    
+                    
+                    <div class="card-text"><small class="text-muted">
+                        
+                        
+                        
+                        
+                        {% if  object.genero == None %}
+                        
+                        {% else %}
+                        
+                        Genero: {{ object.genero }}    
+                        
+                        {% endif %}
+                        
+                        
+                        
+                        
+                        
+                        
+                    </small>
+                    <div class="row">
+                        <a href="{% url 'marca' object.marca.id %}"><div class="card-text ml-3"><small class="text-muted">Categoria: {{ object.marca }}{{marca.nombre}}</small> </div></a>                        
+                    </div>
+                    
+                    <hr>
+                    <div class="contenedor mt-3">
+                            {% if object.stock == False or object.precioMayor == 0 %}
+                            <div class="alert alert-danger text-center">
+                                Lo siento no tenemos stock de este producto por ahora 
+                            </div>
+                            {% else %}
+                            <!-- <a id="suma" href="{% url 'add_product' object.id %}" class="btn btn-success mr-4">+</a>
+                            <a id="resta" href="{% url 'decrement_product' object.id %}" class="btn btn-danger mr-4">-</a> -->
+                            
+                            
+                            <!-- {% include "tienda/contador.html" %}
+                            <a class="text-light" href="{% url 'add_product' producto.id %}"><button type="submit" id='agregar'  style='background:#062542;' class="btn text-white ">Agregar al Carrito</button></a> -->
+                            
+                            <div class="container mt-4  d-flex" id='contenedorBuscador'>
+                                <form class="d-flex" method="get">
+                                    {% csrf_token %}
+                                  <input name='contador' class="form-control mr-2 w-25" type="number" placeholder="cantidad" aria-label="Search" value="1">
+                                  
+                                  
+                                </form>
+
+                                <form action="">
+                                    
+                                </form>
+
+                                <a class="text-light" href="{% url 'add_product' producto.id %}"><button type="submit" id='agregar'  style='background:#062542;' class="btn text-white ">Agregar al Carrito</button></a>
+                              </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DIVISOR CON TEXTO -->
+        <div class="container d-flex my-4">
+            <hr>
+            <h2 class="mx-4 text-center text-primary">Carrito</h2>
+            <hr>
+        </div>
+  <!-- /DIVISOR CON TEXTO -->
+  
+  
+  <!-- sugerencias -->
+  
+  <!-- <div class="container ">
+        <div class="row  ">
+                {% for p in produc  %}
+                  <div class="col-md-3 border m-4 shadow bg-white rounded">
+                    <div class="cards " id='articulo'>
+                      <a href="{% url 'carrito' p.id %}"><img style ='width:250px;height:250px;object-fit: scale-down;' src="{{p.imagen.url}}" class="-img-top" alt=""></a>
+                      {% if p.stock == False %}
+                        <p style='opacity:0.7;transform:translateY(-15vh)' class="text-center "><strong class="text-white p-2 rounded bg-danger h2">
+                          AGOTADO 
+                        </strong></p>
+                      {% endif %}
+                    <p>{{p.nombre}}</p>
+                    <p>Categoria: {{p.marca}}</p>
+                    <p class="text-success"><strong>Por mayor: $ {{p.precioMayor}}</strong></p>
+                    <p>Por menor: $ {{p.precio}}</p>
+          
+                    <div class="container d-flex">
+                      <button style='background:#062542;'   class="btn  mb-4"><a class="text-light" href="{% url 'carrito' p.id %}">Ver Articulo</a></button>
+                      <button  class="btn btn-success mb-4 ml-2"><a class="text-light" href="{% url 'add_product' p.id %}">+<i class="fas fa-shopping-cart"></i></a></button>
+                    </div>
+                    <div class="container">
+      
+                    </div>
+                    
+                  </div>
+                  </div>
+                {% endfor %}
+              </div>
+    </div> -->
+
+<!-- /sugerencias -->
+
+
+<!-- carrito -->
+    {% include "tienda/widget.html" %}
+    <div class="container text-center mb-4">
+        <a href="{% url 'listadoCarrito' %} " class='mr-4' ><button class="btn btn-success ">Ver carrito</button></a>
+        <a href="{% url 'Pedido' %} " class='mr-4' ><button class="btn btn-success ">Crear pedido</button></a>
+        <a href="{% url 'clear_cart' %}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
+    </div>
+
+<!-- /carrito -->
+
+
+
+<script>
+    const d = document;
+    const $python = d.getElementById('python')    
+    const $valor = d.getElementById('id_cantidad')
+    const $agregar = d.getElementById('agregar')
+
+    $agregar.addEventListener('click' ,valor)
+
+    function valor() {
+        console.log($valor.value);
+        $python.setAttribute(value,$valor.value)
+        console.log($python);
+        
+    }
+
+
+    
+</script>
+      
+      
+{% endblock %}
+
+
+

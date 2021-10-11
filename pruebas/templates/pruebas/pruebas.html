@@ -1,0 +1,8 @@
+{% include "tienda/buscador.html" %}
+
+
+<ul>
+  {% for r in productos %}
+    <li>{{r}}========== COD:{{r.cod}}</li>
+  {% endfor %}
+</ul>

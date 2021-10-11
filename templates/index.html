@@ -1,0 +1,426 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Tienda{% endblock %}
+
+{% block css %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+  #producto{
+    animation: animationFrames ease 1s;
+    animation-iteration-count: 1;
+  transform-origin: 50% 50%;
+  animation-fill-mode:forwards; /*when the spec is finished*/
+  -webkit-animation: animationFrames ease 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/ 
+  -moz-animation: animationFrames ease 1s;
+  -moz-animation-iteration-count: 1;
+  -moz-transform-origin: 50% 50%;
+  -moz-animation-fill-mode:forwards; /*FF 5+*/
+  -o-animation: animationFrames ease 1s;
+  -o-animation-iteration-count: 1;
+  -o-transform-origin: 50% 50%;
+  -o-animation-fill-mode:forwards; /*Not implemented yet*/
+  -ms-animation: animationFrames ease 1s;
+  -ms-animation-iteration-count: 1;
+  -ms-transform-origin: 50% 50%;
+  -ms-animation-fill-mode:forwards; /*IE 10+*/
+}
+
+@keyframes animationFrames{
+  0% {
+    opacity:0;
+    transform:  translate(0px,-25px)  ;
+  }
+  100% {
+    opacity:1;
+    transform:  translate(0px,0px)  ;
+  }
+}
+
+@-moz-keyframes animationFrames{
+  0% {
+    opacity:0;
+    -moz-transform:  translate(0px,-25px)  ;
+  }
+  100% {
+    opacity:1;
+    -moz-transform:  translate(0px,0px)  ;
+  }
+}
+
+@-webkit-keyframes animationFrames {
+  0% {
+    opacity:0;
+    -webkit-transform:  translate(0px,-25px)  ;
+  }
+  100% {
+    opacity:1;
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+}
+
+@-o-keyframes animationFrames {
+  0% {
+    opacity:0;
+    -o-transform:  translate(0px,-25px)  ;
+  }
+  100% {
+    opacity:1;
+    -o-transform:  translate(0px,0px)  ;
+  }
+}
+
+@-ms-keyframes animationFrames {
+  0% {
+    opacity:0;
+    -ms-transform:  translate(0px,-25px)  ;
+  }
+  100% {
+    opacity:1;
+    -ms-transform:  translate(0px,0px)  ;
+  }
+}
+
+.cardContenedor{
+    display:flex;
+    margin-left: 1rem;
+
+}
+#imagenCategorias{
+  width:300px;
+  height:auto;
+
+}
+#imagenMarcas{
+  display:flex;
+  align-content: end;
+  align-items:end;
+}
+#botonC {
+  color: #062542;
+  background-image: -webkit-linear-gradient(45deg, #062542 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #062542 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+}
+#botonC:hover {
+  background-position: 0;
+  color:#fff;
+}
+
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/styleIndex.css' %}">
+
+<!-- redes -->
+<div id='redSocial1' class="container position-fixed ">
+  <div >
+    <div id='divInsta' class="d-flex">
+            <a style="text-decoration:none;" href="https://www.instagram.com/perfumeriacasanorma/?hl=es-la"><p id="socialInsta" class='bg-danger text-light text-center h5 ' >Instagram</p></a>
+            <a style="text-decoration:none;" href="https://www.instagram.com/perfumeriacasanorma/?hl=es-la"><i id='instagram' class="fab h3 fa-instagram mr-4 text-danger ml-4 text-center"></i></a>
+      
+    </div>
+  </div>
+
+  
+  <div >
+    <div id='divFace' class="d-flex">  
+            <a style="text-decoration:none;" href="https://www.facebook.com/profile.php?id=100021987014258"><p  id="socialFace" class=' text-light text-center text-white bg-primary h5 ' >Facebook</p></a>
+            <a style="text-decoration:none;" href="https://www.facebook.com/profile.php?id=100021987014258"><i id='facebook' class="fab h3 fa-facebook-f mr-4 text-primary ml-4 text-center"></i></a>
+      
+    </div>
+  </div >
+
+  
+  <div >
+    <div id='divWhat' class="d-flex">  
+            <a style="text-decoration:none;" href="wa.link/819jw5"><p id="socialWhat" class='bg-success text-light text-center h5 ' >Whatsapp</p></a>
+            <a style="text-decoration:none;" href="wa.link/819jw5"><i id='whatsapp' class="fab h3 fa-whatsapp mr-4 text-success ml-4 text-center"></i></a>
+      
+    </div>
+
+  </div>
+</div>
+<!-- /redes -->
+
+<!-- carrucel -->
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 " src="{% static 'img/poster/poster1.jpg' %}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 " src="{% static 'img/poster/poster2.jpg' %}" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 " src="{% static 'img/poster/poster3.jpg' %}" alt="Third slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 " src="{% static 'img/poster/poster4.jpg' %}" alt="Four slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 " src="{% static 'img/poster/poster5.jpg' %}" alt="Five slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 " src="{% static 'img/poster/poster7.jpg' %}" alt="Six slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 " src="{% static 'img/poster/poster8.jpg' %}" alt="Seven slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- carrucel -->
+
+
+
+<!-- carrucel mobil -->
+<div class="container p-0" id='carrucelMobile'>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100 " src="{% static 'img/imgMobil/img0.jpg' %}" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 " src="{% static 'img/imgMobil/img2.jpg' %}" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 " src="{% static 'img/imgMobil/img3.jpg' %}" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 " src="{% static 'img/imgMobil/img4.jpg' %}" alt="Four slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 " src="{% static 'img/imgMobil/img5.jpg' %}" alt="Five slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 " src="{% static 'img/imgMobil/img1.jpg' %}" alt="Six slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<!-- carrucel mobil -->
+
+<!-- buscador -->
+<!-- /buscador -->
+
+
+<!-- DIVISOR CON TEXTO -->
+<div class="container d-flex my-4">
+  <hr>
+  <h2 style='color:#062542' class="mx-4 text-center">MARCAS</h2>
+  <hr>
+</div>
+<!-- /DIVISOR CON TEXTO -->
+
+<!-- categorias -->
+<div class="container mt-4 d-flex justify-content-center">
+  <div class="card-deck">
+    {% for c in marca  %}
+    <div class="card ">
+      <a id='imagenC' href="{% url 'marca' c.id %}" class="shadow bg-white rounded"><img style='width:250px;height: 200px;object-fit: scale-down;padding:1rem;' class="card-img-top " src="{{c.imagen.url}}" alt="Card image cap"></a>
+      <div class="card-body">
+        <a id='botonC' style='text-decoration:none;' href=""><h5  class="card-title text-center">{{c.marca}}</h5></a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- categorias -->
+  
+<!-- DIVISOR CON TEXTO -->
+<div class="container d-flex my-4">
+  <hr>
+  <h2 style='color:#062542;' class="mx-4 text-center ">NOVEDADES</h2>
+  <hr>
+</div>
+<!-- /DIVISOR CON TEXTO -->
+
+<!-- grid nuevo -->
+<div id='producto' class="container ">
+  <div class="row w-100 justify-content-center">
+    {% for p in productos %}
+    <div id='contenedor-articulo' class="col-md-3 m-4 shadow bg-white rounded">
+      <div class="cards mt-4" id='articulo'>
+        <a href="{% url 'carrito' p.id %}"><img style ='width:250px;height:250px;object-fit: scale-down;' class='card-img-top mt-4' src="{{p.imagen.url}}"
+            class="-img-top" alt=""></a>
+        {% if p.stock == False %}
+          <p style='opacity:0.6;transform:translateY(-15vh)' class="text-center "><strong class="text-white p-2 rounded bg-danger h2">
+            AGOTADO 
+          </strong></p>
+        {% endif %}
+
+        <p class="mt-4">{{p.nombre}}</p>
+
+        
+        {% if p.precioMayor == 0 %}
+
+          <p style='opacity:0.6;transform:translateY(-15vh)' class="text-center "><strong class="text-white p-2 rounded bg-danger h2">
+            AGOTADO 
+          </strong></p>
+
+        {% else %}
+
+          <p><strong>Por mayor: $ {{p.precioMayor |floatformat:'2' }}</strong></p>
+          <p>Por menor: $ {{p.precio |floatformat:'2' }}</p>
+
+          
+        {% endif %}
+
+
+        <small class="text-muted mb-4">Genero: {{ p.genero }}</small><br>
+        <a style="text-decoration: none;" href="{% url 'marca' p.marca.id %}"><small class="text-muted mb-4">marca: {{ p.marca }}</small></a>
+
+
+        <div class="d-flex mt-4">
+          <button style='background:#062542;text-decoration: none;' class="btn mb-4 mx-auto">
+            <a class="text-light" href="{% url 'carrito' p.id %}">Ver Articulo</a>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- envios -->
+<div class="container mb-4">
+  <div class="card-group">
+    <div style='background: #0B2A42;' class="card  rounded">
+      <i class="fas fa-map-marked-alt h1 text-center text-white mt-4"></i>
+      <div class="card-body">
+        <h5 class="card-title text-white text-center">Envios a todo el pais</h5>
+        <p class="card-text text-white">Superando la compra de $5.000,00 y te hacemos el envio (a nosotros no nos
+          pagaras el envio , lo pagaras a tu comisionista)</p>
+      </div>
+    </div>
+    <div style='background: #0B2A42;' class="card  ml-2 rounded">
+      <i class="fas fa-paper-plane h1 text-center text-white mt-4"></i>
+      <div class="card-body">
+        <h5 class="card-title text-white text-center" >Envios a C.A.B.A.</h5>
+        <p class="card-text text-white">Superando la compra de $500,00 y te hacemos el envio (tarifa fija para toda
+          C.A.B.A.)</p>
+      </div>
+    </div>
+    <div style='background: #0B2A42;' class="card  ml-2 rounded">
+      <i class="fas fa-shipping-fast h1 text-center text-white mt-4"></i>
+      <div class="card-body">
+        <h5 class="card-title text-white text-center">Envios a G.B.A.</h5>
+        <p class="card-text text-white">Superando la compra de $500,00 y te hacemos el envio (tarifa fija para toda
+          C.A.B.A.)</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- DIVISOR CON TEXTO -->
+<div class="container d-flex my-4">
+  <hr>
+  <h2 style='color:#062542;' class="mx-4 text-center ">MAS PRODUCTOS</h2>
+  <hr>
+</div>
+<!-- /DIVISOR CON TEXTO -->
+
+<!-- mas productos -->
+<div style='background:#FCF8F7;' id='producto' class="container ">
+  <div class="row w-100 justify-content-center">
+    {% for p in nuevo %}
+    <div id='contenedor-articulo' class="col-md-3 m-4 shadow bg-white rounded">
+      <div class="cards" id='articulo'>
+        <a href="{% url 'carrito' p.id %}"><img style='width:250px;height:250px;object-fit: scale-down;' class='card-img-top mt-4' src="{{p.imagen.url}}"
+            class="-img-top" alt=""></a>
+        {% if p.stock == False %}
+          <p style='opacity:0.6;transform:translateY(-15vh)' class="text-center "><strong class="text-white p-2 rounded bg-danger h2">
+            AGOTADO 
+          </strong></p>
+        {% endif %}
+
+        <p>{{p.nombre}}</p>
+
+
+
+
+        {% if p.precioMayor == 0 %}
+        <p style='opacity:0.6;transform:translateY(-15vh)' class="text-center "><strong class="text-white p-2 rounded bg-danger h2">
+          AGOTADO 
+        </strong></p>
+        
+        {% else %}
+
+          <p><strong>Por mayor: $ {{p.precioMayor |floatformat:'2' }}</strong></p>
+          <p>Por menor: $ {{p.precio |floatformat:'2' }}</p>
+
+          
+        {% endif %}
+
+
+
+
+
+        <small class="text-muted mb-4">Genero: {{ p.genero }}</small><br>
+
+        <a style="text-decoration: none;" href="{% url 'marca' p.marca.id %}"><small class="text-muted mb-4">marca: {{ p.marca }}</small></a>
+        
+        <div class="d-flex mt-4">
+          <a style="text-decoration:none;" class="text-light" href="{% url 'carrito' p.id %}"><button style='background:#062542;text-decoration: none;' class="btn mb-4 mx-auto">
+            Ver Articulo</a>
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- /mas productos -->
+
+<script>
+  const $menu = document.getElementById('carouselExampleControls');
+  const $menuMobil = document.getElementById('carrucelMobile');
+  
+  
+  if (screen.width > 600) {
+    $menuMobil.style.display='none';
+    
+  }else{
+    $menuMobil.style.display='block';
+    $menu.style.display='none';
+  
+    
+  }
+
+</script>
+  
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+
+
+{% extends "base.html" %}
+{% load static %}
+{% load cart_tags %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/styleTienda.css' %}">
+{% endblock %}
+
+{% block title %}{{titulo.nombre}}{% endblock %}
+
+{% block content %}
+
+
+
+
+{% include "tienda/mensajes.html" %}
+
+
+
+<div class="col-sm-12  ">
+  <div class="mt-4">
+    
+      {% include "tienda/widget.html" %}
+      {{mensanje}}
+
+  </div>
+</div>
+<!-- tipo de entrega -->
+<!-- /tipo de entrega -->
+
+</div>
+
+<div class="container  d-flex justify-content-center">
+  
+  <a href="{% url 'Pedido' %} " class='mr-4' ><button class="btn btn-success ">Crear Pedido</button></a>
+
+  <a href="{% url 'clear_cart' %}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+</div>
+
+
+
+
+
+{% endblock %}

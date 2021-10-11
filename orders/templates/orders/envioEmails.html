@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de E-mails</title>
+    {% load cart_tags %}
+
+    <link rel="stylesheet" href="{% static 'css/styleMail.css' %}">
+
+    <style>
+        *{
+    font-family:'sans-serif';
+    }
+
+    :root{
+        --colorOfc:#062543;
+    }
+
+    .info{
+        display:block;
+        background:var(--colorOfc);
+        color: #fff;
+        border-radius:3px;
+        text-align: center;
+        box-shadow: 3px 3px 3px #555;
+        padding: 2px;
+        font-size: 34px;
+        padding: 2rem;
+    }
+
+    .border{
+        border:1px solid rgb(97, 93, 93);
+        width:100%;
+    }
+
+    th{
+        background:var(--colorOfc);
+        color: #fff;
+        border: 1px solid  rgb(97, 93, 93) ;
+    }
+
+    td{
+        border: 1px solid  rgb(97, 93, 93) ;
+    
+    }
+
+
+    .liD{
+        list-style-type: none;
+    } 
+
+    .datosC{
+        border: 1px solid rgb(97, 93, 93);
+        margin-top:1rem;
+    }
+        
+    </style>
+</head>
+<body>
+
+
+
+<div class="">
+    <h2 class=''>Hola, {{ nombre }} {{apellido}}</h2>
+    <p>Muchas gracias por tu pedido, a continuacion adjuntamos toda la informacion de tu pedido. </p>
+
+    <img style='width:300px;height:auto;' src="{% static 'img/logoP.png' %}" alt="">
+
+    <h2 class="info">Informacion del pedido</h2>
+    <h2 class="">Pedido {{order.id}}</h2>
+    
+    <table class="border">
+        <thead id="head1">
+            <tr class=''>
+                <th id="losTh1" class="">Codigo</th>
+                <th id="losTh1" class="">Producto</th>
+                <th id="losTh1" class="">Cantidad</th>
+                <th id="losTh1" class="">Precio/u</th>
+                <th id="losTh1" class="">Precio Total</th>
+            </tr>
+        </thead>
+        {% for o in order_lines  %}
+        <tbody id="elTbody">
+              <td>{{ o.product.cod }}</td>
+              <td>{{ o.product.nombre }}</td>
+              <td style="text-align:center">{{ o.cantidad }}</td>
+              <td style="text-align:center">{{ o.product.precio|money_format:'$' }}</td>
+              <td style="text-align:center">{{ o.product.precio|multiply:o.cantidad|money_format:'$' }}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br><br><br>
+
+    <table  class="border">
+        <thead id="head2">
+            <tr class=''>
+                <th id="losTh2" class="">Pedido Nro.</th>
+                <th id="losTh2" class="">Total</th>
+                <th id="losTh2" class="">Fecha/Hora</th>
+            </tr>
+        </thead>
+        <tbody id="elTbody">
+            <tr>
+                <td style="text-align:center">{{ order.id }}</td>
+                <td style="text-align:center">{{ order.total|money_format:'$' }}</td>
+                <td style="text-align:center">{{ order.created_at|date:'d/m/Y H:i' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<h5 class="info">Datos del cliente</h5>
+
+<div class="datosC">
+    <ul class='ulD'>
+        <li class='liD'> <strong> Nombre y Apellido</strong>: {{ nombre }} {{ apellido }}</li><br>
+        <li class='liD'> <strong> DNI</strong>: {{ dni }}</li><br>
+        <li class='liD'> <strong> Direccion</strong>: {{ direccion }}</li><br>
+        <li class='liD'> <strong> Localidad</strong>: {{ localidad }}</li><br>
+        <li class='liD'> <strong> Provincia</strong>: {{ provincia }}</li><br>
+        <li class='liD'> <strong> Telefono</strong>: {{ telefono }}</li><br>
+        <li class='liD'> <strong> Transporte</strong>: {{ transporte }}</li><br>
+    </ul>
+</div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    
+</body>
+</html>

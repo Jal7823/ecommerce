@@ -1,0 +1,127 @@
+*{
+    font-family: 'sans-serif';
+    scroll-behavior: smooth;
+}
+
+:root{
+    --colorFont:#f7b658;
+    
+}
+
+.contenedor{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    
+
+}
+
+
+.categoria-item{
+    margin-left: 20px;
+    
+
+}
+
+.categoria-item img{
+    border-radius: 23px;
+}
+
+.paralax{
+    opacity:0.5;
+    width: 100%;
+    height:400px;
+    
+}
+
+.paralaxTexto{
+    transform: translateY(-250px);
+}
+
+
+.imgParalax{
+    width: 100%;
+    height: 500px;
+}
+
+.paralaxContenedorImagen{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.borde{
+    border:2px solid #fff;
+    width: 90%;
+    height: 400px;
+    margin:auto;
+    transform: translateY(-350px);
+
+
+
+}
+
+#divDividido{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+hr{
+    width: 90%;
+}
+
+
+.contenedor-hr{
+    display: flex;
+}
+
+.contenedor-hr hr{
+    width: 40%;
+}
+
+
+#carrucelImg{
+    width: 300px;
+    height:auto;
+    margin: auto;
+    border-radius:23px;
+}
+
+.card{
+    border: none;
+}
+
+
+
+
+#red{
+    transform: translateX(409px);
+    transition: 1s;
+}
+
+#red:hover{
+    transform: translateX(0px);
+    transition: 1s;
+
+}
+
+
+#icono:hover{
+    cursor: pointer;
+}
+
+
+
+
+#footer{
+background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+
+

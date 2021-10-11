@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load cart_tags %}
+
+{% load crispy_forms_tags %}
+
+{% block css %}
+
+
+
+
+{% endblock %}
+
+{% block title %}{{titulo.nombre}}{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+          <div class="col-sm-9   mx-auto">
+            <div class="card card-signin my-5">
+              <div class="card-body">
+                <h2 class="card-title text-center">Registrarse</h2>
+                <div class="alert alert-success text-center justify-content-center  ">
+                  <p id='mensaje' class=''>Los datos que suministrará acá seran utilizados para el envío de su mercaderia.</p>
+                </div>
+                            <form class="form-signin" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        {{ form | crispy  }}
+                    <input  type="submit" class='btn btn-primary '>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+        
+      {% endblock %}

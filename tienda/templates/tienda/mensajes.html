@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    {% if messages %}
+    <ul>
+       {% for message in messages %}
+       <div class="alert alert-success text-center justify-content-center  ">
+        <p id='mensaje' class='h4'>{{ message }}</p>
+      </div>
+      
+       {% endfor %}
+    </ul>
+    {% endif %}
+    
+  </div>
+  

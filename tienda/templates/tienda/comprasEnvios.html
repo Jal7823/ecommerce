@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Tienda{% endblock %}
+
+{% block css %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div style='background:#062542;' class="jumbotron text-center">
+    <h1 class="display-4 text-white">Métodos de compra y envío!</h1>
+</div>
+
+
+<h2 class="text-center mb-4">Hola👋</h2>
+
+<p class="text-center mb-4"> Te explicamos nuestro sistema de compras y envíos el cual puedes realizar por:</p>
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+                <img style="width:300px;" class="card-img-top" src="{% static 'img/logoP.png' %}" alt="">
+              <h5 class="card-title">Perfumeria</h5>
+              <a href="{% url 'tienda' %}" class="btn btn-primary">Ver Productos</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+                <img style="width:300px;" class="card-img-top" src="{% static 'img/logoL.png' %}" alt="">
+              <h5 class="card-title">Libreria</h5>
+              <a href="#" class="btn btn-primary">Ver Productos</a>
+            </div>
+          </div>
+        </div>
+      </div></div>
+
+
+
+<div class="container mb-4 mt-4">
+    <p class="text-justify">En todos los casos al realizar su pedido ya sea por nuestra pagina web <a href="www.casanorma.com.ar">www.casanorma.com.ar</a> 🌐 o por whatsapp <strong> debe esperar a ser contactado 📲 para confirmar que toda su mercadería esta separada ( ⏱️ esto se hará en un plazo no mayor a 48 horas)</strong> , le pasaremos el importe y <strong> recién es que recomendamos que efectué el deposito o transferencia</strong>.
+    </p>
+</div>
+
+<div class="container">
+    <ul>
+        <li>-🛒  <strong> C.A.B.A.:</strong> la compra mínima es de 2 und. por artículos (en el caso de perfumería, los perfumes pueden ser surtidos), 6 por articulo como mínimo en caso de cosmética.
+            <br><br>
+            <ul>
+                <li><strong>🛵*Transporte a C.A.B.A.:</strong> el envió tiene un costo de $400,00. <br><br></li>
+            </ul>
+        </li>
+
+
+        <li>-🛒 <strong> G.B.A.:</strong> la compra mínima es de 2 und. por artículos (en el caso de perfumería, los perfumes pueden ser surtidos), 6 por articulo como mínimo en caso de cosmética.
+            <br><br>
+            <ul>
+                <li><strong>🚚*Transporte a G.B.A.:</strong> el envió es cotizado en base a su dirección (esta debe facilitárnosla por este mismo whatsapp). <br><br></li>
+            </ul> 
+        </li>
+
+
+        <li>-🛒 <strong> Interior del país:</strong> la compra mínima es de $5000,00 y 2 und. por artículos (en el caso de perfumería, los perfumes pueden ser surtidos), 6 por articulo como mínimo en caso de cosmética.
+            <br><br>
+            <ul>
+                <li><strong>🚚🗺️*Transporte a Interior del país:</strong> usted nos indica por donde quiere que se lo enviemos (recalcamos que no trabajamos con Correo Argentino,OCA ni Andreani) en caso de usted no sepa que transporte va a su localidad con gusto le facilitaremos la información de cual puede usar basándonos en los trasportes que usan otros clientes hacia su localidad. <br><br>
+                </li>
+            </ul>
+         </li>
+
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container ">
+<div class="container d-flex">
+    <div class="row d-flex ">
+        <div class="col-6 justify-content-center">
+            <div class="card justify-content-center">
+                <card class="body">
+                    <div class="card-text">
+                        <h2 class="text-center">💄PERFUMERÍA</h2>
+                        <li> whatsapp: <a href="https://wa.me/5491164638494 ">Whatsapp</a></li>
+                        <li> Pagina: <a href="https://casanorma.com.ar/">Pagina</a> </li>
+                
+                    </div>
+                </card>
+            </div>
+        </div>
+    </div>
+        <div class="d-flex">
+            <div class="card justify-content-center">
+                <card class="body justify-content-center">
+                    <div class="card-text">
+                        <h2 class="text-center">📚LIBRERÍA </h2> 
+                        <br><br>
+                        <li> whatsapp: <a href="https://wa.me/5491167322222">Whatsapp</a></li>
+                        <li> Pagina: <a href="https://casanorma.com.ar/Libreria/">Pagina</a> </li>
+                
+                    </div>
+                </card>
+            </div>
+        </div>
+</div>
+<br>        
+        
+            <p class="text-justify"> En todos los casos al realizar su pedido ya sea por nuestra pagina web www.casanorma.com.ar 🌐 o por whatsapp debe esperar a ser contactado 📲 para confirmar que toda su mercadería esta separada( ⏱️ esto se hará en un plazo no mayor a 48 horas), le pasaremos el importe y recién es que recomendamos que efectué el deposito o transferencia.</p>
+
+
+        <ul><h3 class='text-center'>Condiciones de compra:</h3>
+        <li>🛒 C.A.B.A.: la compra mínima es de 2 por artículos (en el caso de perfumería, los perfumes pueden ser surtidos), 6 por articulo como mínimo en caso de cosmética, 
+            🛵*Transporte a C.A.B.A.: el envió tiene un costo de $400,00</li>
+        <li>-🛒G.B.A.: la compra mínima es de 2 por artículos (en el caso de perfumería, los perfumes pueden ser surtidos), 6 por articulo como mínimo en caso de cosmética.
+            🚚*Transporte a G.B.A.: el envió es cotizado en base a su dirección (esta debe facilitárnosla por este mismo whatsapp)</li>
+        <li>-🛒Interior del país: la compra mínima es de $5000,00 y 2 por artículos (en el caso de perfumería, los perfumes pueden ser surtidos), 6 por articulo como mínimo en caso de cosmética. </li>
+        <li>-🛒Interior del país: la compra mínima es de $5000,00 y 2 por artículos (en el caso de perfumería, los perfumes pueden ser surtidos), 6 por articulo como mínimo en caso de cosmética.</li>
+        
+        <li>🚚🗺️*Transporte a Interior del país: usted nos indica por donde quiere que se lo enviemos (recalcamos que no trabajamos con Correo Argentino,OCA ni Andreani) en caso de usted no sepa que transporte va a su localidad con gusto le facilitaremos la información de cual puede usar basándonos en los trasportes que usan otros clientes hacia su localidad</li>
+            </div>
+        </ul>
+
+</div> -->
+
+
+
+{% endblock  %}

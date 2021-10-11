@@ -1,0 +1,16 @@
+<style>
+  #contenedorBuscador{
+    transition: 1s;
+  }
+</style>
+
+
+<div class="container mt-4 " id='contenedorBuscador'>
+  <form class="d-flex">
+    <input name='contador' class="form-control mr-2" type="number" placeholder="cantidad" aria-label="Search">
+    
+    <a href="{% url 'add_product' object.id %}"><button class="btn btn-outline-success" type="submit">Buscar</button>
+    </a>
+  </form>
+
+</div>

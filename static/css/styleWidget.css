@@ -1,0 +1,11 @@
+
+
+#suma:hover{
+    transform:scale(1.1);
+    transition:1s
+}
+
+#resta:hover{
+    transform:scale(1.1);
+    transition:1s
+}

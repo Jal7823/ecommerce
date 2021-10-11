@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/stylelogin.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/all.css' %}">
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+
+
+
+
+{% block content %}
+<div class="container">
+
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+              <i class="fas fa-user display-1 w-100 p-4 text-primary text-center b "></i>
+
+            <form class="form-signin" method="post">
+              {% csrf_token %}
+              <div class="form-label-group">
+                <!-- {{ form.username }} -->
+                {{ form | crispy  }}
+              </div>
+
+              <div class="form-label-group">
+                <!-- {{ form.password }} -->
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Recordar contraseña</label>
+              </div>
+              <button class="btn btn-lg btn-success btn-block text-uppercase " type="submit">Iniciar sesion</button>
+              
+              <hr class="my-4">
+            </form>
+            <a class='text-white text-decoration-none' href="{% url 'registro' %}"><button class="btn btn-lg btn-primary btn-block text-uppercase mt-4" type="submit">Registro</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  </div>
+
+
+  <script src='{% static "js/jquery.slim.min.js" %}'></script>
+  <script src='{% static "js/bootstrap.bundle.min.js" %}'></script>
+
+
+
+
+{% endblock %}

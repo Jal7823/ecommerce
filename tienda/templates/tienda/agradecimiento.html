@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load cart_tags %}
+
+{% block content %}
+
+
+
+<div id='pc' class="content p-4">
+    <img style='height:100vh' class="w-100 " src="{% static 'img/agradecimientopc.jpg' %}" alt="">
+</div>
+
+<div id='mobil' class="content">
+    <img class="w-100" src="{% static 'img/agradecimientoMobil.jpg' %}" alt="">
+</div>
+
+
+<script>
+    const $menu = document.getElementById('pc');
+    const $menuMobil = document.getElementById('mobil');
+
+
+    if (screen.width > 600) {
+    $menuMobil.style.display='none';
+
+    }else{
+    $menuMobil.style.display='block';
+    $menu.style.display='none';
+
+
+    }
+  
+
+</script>
+  
+{% endblock %}

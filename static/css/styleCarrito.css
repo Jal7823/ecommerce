@@ -1,0 +1,9 @@
+.contenedorGeneral{
+    display:flex;
+    border:1px solid #000;
+}
+
+
+.filtros{
+    width:15%;
+}

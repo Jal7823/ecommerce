@@ -1,0 +1,59 @@
+{% load static %}
+{% load cart_tags %}
+
+
+<link rel="stylesheet" href="{% static 'css/styleWidget.css' %}">
+
+
+<div class="container">
+    <table class="table table bordered">
+        <thead>
+            <tr>
+                <th style='background:#0B2A42;' colspan='3' class="text-center jumbotron text-white mb-4s">
+                    <h3 class="display-5 text-white">Carrito de compras</h3>
+                </th>
+            </tr>
+            <tr class="text-center mt-4">
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if request.session.cart.items %}
+                {% for key,value in request.session.cart.items  %}
+                        <tr class="">
+                            <td class="text-left"><a style='text-decoration:none'; href="{% url 'carrito' value.producto_id %}">{{value.nombre| upper }}</a></td>
+                            <td class="text-center">{{value.cantidad}}</td>
+                            <td class="text-center">
+                                <a id="suma" href="{% url 'add_product' value.producto_id %}" class="btn btn-success">+</a>
+                                <a id="resta" href="{% url 'decrement_product' value.producto_id %}" class="btn btn-danger">-</a>
+                            </td>
+                        </tr>
+
+                {% endfor %}
+            {% else %}
+                    <div class="alert alert-danger text-center">
+                        No tienes productos en el carrito
+                    </div>
+                
+            
+            {% endif %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="text-center text-success" colspan='3'>
+                <strong>
+                    <div name='total' style='background:#0B2A42;' class="text-white rounded h3 p-4">
+                        Total : {{ importe_total|money_format:'$' }}<br>
+                    
+                    </div>
+                </strong>
+            </td>
+            </tr>
+        </tfoot>
+    </table> 
+</div>
+
+
+

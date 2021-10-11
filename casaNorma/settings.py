@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-ay_3sf(i!#3^&avu#4v)6v(l1e6*w#oyw2j4rx(w9$&1tn7%_0
 DEBUG = False
 
 
+
 ALLOWED_HOSTS = ['casaNorma.pythonanywhere.com']
 
 AUTH_USER_MODEL = 'usuarios.Usuario'

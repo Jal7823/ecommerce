@@ -88,5 +88,5 @@ class Usuario(AbstractUser):
         return True
 
     @property
-    def is_staaff(self):
+    def is_staff(self):
         return self.usuario_administrador

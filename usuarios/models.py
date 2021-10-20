@@ -27,6 +27,7 @@ class UsuarioManager(BaseUserManager):
         )
 
         user.usuario_administrador = True
+        user.staff = True
         user.save()
         return user
 

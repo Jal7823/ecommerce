@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'mptt',
     'multiselectfield',
+    "corsheaders",
     
     #apps
     'productos',
@@ -61,6 +62,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -193,3 +195,14 @@ EMAIL_HOST_USER = 'c67b567f2de622'
 EMAIL_HOST_PASSWORD = 'f659be89c2dbed'
 EMAIL_PORT = '2525'
 
+
+
+#CORS
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+]
+
+CORS_ORIGINS_WHITELIST =[
+    "http://localhost:8080",
+]

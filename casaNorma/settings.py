@@ -21,7 +21,7 @@ DEBUG = os.getenv('DEBUG')
 
 
 
-ALLOWED_HOSTS = 'casanorma.pythonanywhere.com'
+ALLOWED_HOSTS = ['casanorma.pythonanywhere.com']
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
 
